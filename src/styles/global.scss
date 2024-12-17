@@ -1,0 +1,91 @@
+// =============================
+// Global Styles and Variables
+// =============================
+
+// 1. RESET STYLES
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; // Set default base font size
+}
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.5;
+    color: $text-color;
+    background-color: $background-color;
+}
+
+// 2. FONT SETUP (Custom Google Font or Local Font)
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+$roboto: 'Roboto', Arial, sans-serif;
+
+// 3. COLOR VARIABLES
+$primary-color: #3498db;    // Blue
+$secondary-color: #2ecc71;  // Green
+$accent-color: #e74c3c;     // Red
+$background-color: #f8f9fa; // Light gray
+$text-color: #333333;       // Dark gray
+
+// 4. MIXINS FOR BREAKPOINTS
+$breakpoints: (
+  'mobile': 768px,
+  'tablet': 1023px,
+  'desktop': 1215px,
+  'widescreen': 1407px,
+  'fullhd': 1920px
+);
+
+// Mixin for Mobile-First Approach (Max-width)
+@mixin until($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (max-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$size}' not found.";
+  }
+}
+
+// Mixin for Larger Screens (Min-width)
+@mixin from($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (min-width: (map-get($breakpoints, $size) + 1px)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$size}' not found.";
+  }
+}
+
+// 5. GLOBAL UTILITIES
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
