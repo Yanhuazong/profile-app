@@ -1,0 +1,192 @@
+@use "../styles/global.scss" as g;
+form {
+  background-color: g.$form-background-color;
+  padding: 30px;
+  border-radius: g.$border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto; // Center the form
+  @include g.until("mobile") {
+      width: 100%;
+      padding: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  /* Form elements (input, textarea) */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    width: 100%;
+    padding: g.$input-padding;
+    margin: g.$input-margin;
+    border: 1px solid g.$border-color;
+    border-radius: g.$border-radius;
+    font-size: 16px;
+  }
+
+  /* File input styling */
+  input[type="file"] {
+    width: 100%;
+    padding: g.$input-padding;
+    margin: g.$input-margin;
+    background-color: #fafafa;
+    border: 1px solid g.$border-color;
+    border-radius: g.$border-radius;
+  }
+
+  /* Focus effect on inputs */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  textarea:focus {
+    border-color: g.$focus-border-color;
+    outline: none;
+  }
+
+  /* Textarea styling */
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  /* Submit button styling */
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: g.$primary-color;
+    color: white;
+    border: none;
+    border-radius: g.$border-radius;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: g.$primary-color-hover;
+    }
+  }
+
+  button.editButton {
+    background-color: g.$secondary-color;
+    margin-top: 10px;
+  }
+
+  button.deleteButton {
+    background-color: g.$error-color;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  /* Error and success messages */
+  .error {
+    color: g.$error-color;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .success {
+    color: g.$success-color;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: g.$primary-color;
+  color: white;
+
+  a {
+    color: white;
+    margin-right: 1rem;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .username {
+    margin-right: 1rem;
+  }
+
+  button {
+    background-color: g.$secondary-color;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: g.$secondary-color-hover;
+    }
+  }
+}
+
+.profile {
+  background-color: g.$form-background-color;
+  padding: 20px;
+  border-radius: g.$border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    border-radius: g.$border-radius;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  button.deleteButton {
+    background-color: g.$error-color;
+    margin-top: 10px;
+  }
+}
+
+.notFound {
+  text-align: center;
+  padding: 2rem;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    color: g.$primary-color;
+    text-decoration: none;
+    font-size: 1.25rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
